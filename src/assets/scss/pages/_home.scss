@@ -1,0 +1,25 @@
+.page {
+    height: 100vh;
+    display: grid;
+    gap: 1rem;
+    grid-template-rows: min-content auto min-content;
+}
+
+.tit-with-icon {
+    display: flex;
+    align-items: center;
+}
+
+.grid-demo {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: 2fr;
+    grid-gap: 1rem;
+    @include mq-max(md) {
+        grid-template-columns: 1fr;
+    }
+    img {
+        width: 100%;
+        object-fit: cover;
+    }
+}

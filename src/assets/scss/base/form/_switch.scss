@@ -1,0 +1,94 @@
+.switch {
+   position: relative;
+   display: inline-block;
+   width: 4.7rem;
+   height: 2.1rem;
+
+   @include e(input){
+      opacity: 0;
+      width: 0;
+      height: 0;
+      &:checked + [class*="slider"] {
+         background: color( grayscale, gray-4 );
+         &::before {
+            transform: translateX(40px);
+         }
+      }
+      &:checked ~ [class*="text"] {
+         &.on {
+            opacity: 0;
+         }
+         &.off {
+            opacity: 1;
+         }
+      }
+      &:disabled + [class*="slider"] {
+         cursor: default;
+         background: color( grayscale, gray-2 );
+      }
+   }
+
+   @include e(slider){
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: color( grayscale, gray-3 );
+      transition: .3s;
+      border-radius: 25px;
+      cursor: pointer;
+      &::before {
+         position: absolute;
+         content: "";
+         height: 26px;
+         width: 26px;
+         left: 4px;
+         bottom: 4px;
+         background-color: white;
+         transition: .4s;
+         border-radius: 50%;
+         z-index: 1;
+      }
+   }
+
+   @include e(text){
+      position: absolute;
+      font-weight: bold;
+      top: 5px;
+      transition: .3s all linear;
+      &.off {
+         color: #fff;
+         left: 1.2rem;
+         opacity: 0;
+      }
+      &.on {
+         color: #333;
+         right: .9rem;
+         opacity: 1;
+      }
+   }
+
+   // MODIFICADORES DE COLORES
+   $variablesColors : base, light, dark ;
+
+   @each $color in $variablesColors {
+      &.primary-#{$color} {
+
+         [class*="input"] {
+            &:checked + [class*="slider"] {
+               background: color( primary, $color );
+            }
+         }
+
+      }
+      &.secondary-#{$color} {
+         [class*="input"] {
+            &:checked + [class*="slider"] {
+               background: color( secondary, $color );
+            }
+         }
+      }
+   }
+
+}

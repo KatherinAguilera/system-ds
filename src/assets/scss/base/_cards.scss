@@ -1,0 +1,45 @@
+.card {
+   box-shadow: 1px 1px 1px #000;
+   width: 100%;
+   box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.2);
+   transition: 0.3s ease;
+   &:hover {
+      box-shadow: 2px 4px 15px 0 rgba(0, 0, 0, 0.2);
+   }
+}
+
+.card-grid {
+   .card {
+      padding: map-get($sizes, large) map-get($sizes, thumb);
+   }
+}
+
+// **************** ESTILOS PARA CARDS ***************//
+.cards {
+   background-color: color(grayscale, white);
+   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.15);
+   @include m(header) {
+      padding: map-get($sizes, half) map-get($sizes, base) 0
+         map-get($sizes, base);
+   }
+   @include m(header_avatar) {
+      padding: map-get($sizes, base) map-get($sizes, base) map-get($sizes, tiny)
+         map-get($sizes, base);
+   }
+
+   @include e(content) {
+      padding: map-get($sizes, base);
+   }
+   @include e(footer) {
+      padding: map-get($sizes, base);
+      button {
+         text-transform: inherit;
+      }
+   }
+   hr {
+      margin: 0;
+   }
+   .text-bold {
+      font-weight: bold;
+   }
+}

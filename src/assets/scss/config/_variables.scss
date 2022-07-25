@@ -1,0 +1,113 @@
+// Define skin(child) que se aplica al sistema
+@import './skin/default';
+
+// ========================================================================== 
+// FontStack
+// ========================================================================== 
+
+$font-size         : 1rem;
+$font-family-brand : $fontFamilyBrand;
+$font-primary      : $fontPrimary;
+$font-secondary    : $fontSecondary;
+
+// ========================================================================== 
+// COLORS : Eje.: background: color( primary, light ); 
+// ========================================================================== 
+
+$colors: (
+   primary: (
+      base     : $primaryBase,
+      light    : $primaryLight,
+      dark     : $primaryDark
+   ),
+   secondary: (
+      base     : $secondaryBase,
+      light    : $secondaryLight,
+      dark     : $secondaryDark
+   ),
+   complementary: (
+      one      : $complementaryOne,
+      two      : $complementaryTwo, 
+      three    : $complementaryThree
+   ),
+   alerts: (
+      success  : $alertsSuccess,
+      error    : $alertsError,
+      warning  : $alertsWarning,
+      info     : $alertsInfo
+   ),  
+   controls:( 
+      base     : $control01,
+      dark     : $control01-dark,
+   ),
+   grayscale: (
+      white    : $grayscaleWhite,
+      gray-1   : $grayscaleLevel-1,
+      gray-2   : $grayscaleLevel-2, 
+      gray-3   : $grayscaleLevel-3, 
+      gray-4   : $grayscaleLevel-4,
+      gray-5   : $grayscaleLevel-5, 
+      gray-6   : $grayscaleLevel-6,
+      gray-7   : $grayscaleLevel-7,   
+      base     : $grayscaleBase,
+      black    : $grayscaleBlack  
+   ),
+   border:(
+      color-1  : $borderColor-1,
+      color-2  : $borderColor-2, 
+   )
+);
+
+// ==========================================================================
+// SPACING : Eje.: padding: map-get($sizes, "tiny");
+// ==========================================================================
+ 
+$sizes: (
+   none   : 0,
+   tiny   : .5rem,   // 8px
+   xsmall : .75rem,  // 12px
+   small  : .875rem, // 14px
+   base   : 1rem,    // 16px
+   thumb  : 1.125rem,// 18px
+   mid    : 1.25rem, // 20px
+   half   : 1.5rem,  // 24px
+   medium : 2rem,    // 32px
+   large  : 3rem,    // 48px
+   xlarge : 3.5rem,  // 56px
+   huge   : 4rem     // 64px
+);
+
+// ==========================================================================
+// WEIGHT : Eje.: font-weight: map-get($weights, "regular");
+// ==========================================================================
+ 
+$weights: (
+   thin     : 100,
+   xlight   : 200,
+   light    : 300,
+   regular  : 400,
+   medium   : 500,
+   semibold : 600,
+   bold     : 700,
+   xbold    : 800,
+   black    : 900
+);
+
+
+// ==========================================================================
+// Breakpoints
+// ==========================================================================
+
+$breakpoints: (
+   sm  : 600px,
+   md  : 960px,
+   lg  : 1280px,
+   xl  : 1920px, 
+);
+
+// ========================================================================== 
+// Alignment 
+// ========================================================================== 
+
+$alignment: left, center, right, justify; 
+

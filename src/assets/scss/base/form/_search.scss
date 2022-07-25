@@ -1,0 +1,33 @@
+.search {
+   width: 100%;
+   display: flex;
+   @include e(input) {
+      @extend .input__input;
+      padding-right: 2.5rem;
+      &:focus {
+         border-color: color( controls, base );
+         outline: 0;
+         box-shadow: none;
+         & ~ [class*="button"] {
+            color: color( controls, base );
+         }
+      }
+   }
+   @include e(button) {
+      background-color: transparent;
+      color: color( grayscale, gray-4 );
+      border: 0;
+      padding: 0;
+      outline: 0;
+      margin: 5px 0 0 -35px;
+      height: auto;
+      width: auto;
+      font-size: 1.6rem;
+      z-index: 1;
+      cursor: pointer;
+      &:hover, &:focus {
+         text-decoration: none;
+         color: color( grayscale, gray-4 );
+      }
+   }
+}

@@ -1,0 +1,70 @@
+.button {
+   font-family: $font-family-brand;
+   font-size: $font-size;
+   padding: ( $font-size - .25rem ) ( $font-size + .9rem);
+   border: none;
+   cursor: pointer;
+   font-weight: 700; 
+   line-height: 1;
+   outline: none;
+   box-shadow: 0 2px 2px 0 rgba(0,0,0,0.25);
+   text-transform: uppercase;
+   width: 100%;
+   transition: .3s ease;
+   @include mq-min(sm) {
+      width: auto;
+   }
+
+   // Hierarchy
+   &.primary {
+      @include button( color( primary, base ) );
+      &.outline {
+         @include button( transparent, color( primary, base ) );
+         border: .13rem solid color( primary, base );
+         box-shadow: none;
+         &:hover, &:active {
+            @include button( color( primary, base ) );
+            box-shadow: none;
+         }
+      }
+   }
+   &.secondary {
+      @include button( color( secondary, base ), color( grayscale, base ) );
+      &.outline {
+         @include button( transparent, color( secondary, base ) );
+         border: .15rem solid color( secondary, base );
+         box-shadow: none;
+         &:hover, &:active {
+            @include button( color( secondary, base ), color( grayscale, white ));
+         }
+      }
+   }
+   
+   // sizes
+   &.small {
+      padding:    ( $font-size - .50rem ) ( $font-size );
+      font-size:  ( $font-size - .25rem );
+   }
+   &.large {
+      padding:    ( $font-size ) ( $font-size + .50rem);
+      font-size:  ( $font-size + .25rem );
+   }
+   &.circle {
+      border-radius: 50%;
+      height: 2.5rem;
+      width: 2.5rem;
+      display: inline-flex;
+      justify-content: center;
+      font-size: 1.45rem;
+      padding: inherit;
+      align-items: center;
+   }
+   // Rounded
+   &.rounded {
+      border-radius: 2.1rem;
+   }
+   &.block {
+      display: block;
+      width: 100%;
+   }
+}

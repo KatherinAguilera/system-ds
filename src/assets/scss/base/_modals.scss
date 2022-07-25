@@ -1,0 +1,65 @@
+ 
+.modal {
+   height: 100%;
+   width: 100%;
+   position: fixed;
+   left: 0;
+   top: 0;
+   transform: translate(-50%,-50%);
+   background-color: rgba( color(grayscale, black) , .4 );
+   opacity: 0;
+   visibility: hidden;
+   transform: scale(1.1);
+   pointer-events: none;
+   z-index: 1011;
+   transition: visibility 0s linear .25s, opacity .25s 0s, transform .25s;
+
+   @include e('popup') {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: color(grayscale, white);
+      width: calc( 100% - 2rem);
+      border-radius: .25rem;
+      max-width: 480px;
+      box-shadow: 0 1px 2px 1px rgba(0, 0, 0, 0.3);
+   }
+
+   @include e('content') {
+      font-family: $font-family-brand;
+      padding: 3rem 1.5rem;
+      color: color(grayscale, gray-4);
+      font-size: .9rem;
+   }
+
+   @include e('buttons') {
+      display: flex;
+      justify-content: center;
+      width: auto;
+      margin: 2rem 0 0rem;
+   }
+
+   @include e('close') {
+      position: absolute;
+      font-size: 1.3rem;
+      color: color(grayscale, gray-4);
+      right: .7rem;
+      top: .7rem;
+      cursor: pointer;
+   }
+
+   @include e('icon') {
+      font-size: 4rem;
+      line-height: 1.2;
+   }
+
+   @include m('active') {
+      opacity: 1;
+      pointer-events: auto;
+      visibility: visible;
+      transform: scale(1.0);
+      transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
+   }
+   
+}

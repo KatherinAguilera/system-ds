@@ -1,0 +1,68 @@
+
+.text {
+  @include color-modifiers('text', 'color');
+}
+
+// ==========================================================================
+// TEXT SIZES: Ej.: .text-tiny;
+// ==========================================================================
+
+@each $name, $size in $sizes {
+  .text-#{$name} {
+    font-size: $size;
+    transition: .3s ease;
+  }
+}
+
+// ==========================================================================
+// FONT WEIGHT: Ej.: .regular;
+// ==========================================================================
+
+@each $name, $weight in $weights {
+  .#{$name} {
+    font-weight: $weight;
+    &.italic {
+      font-style: italic;
+    }
+  }
+}
+
+// ==========================================================================
+// TEXT SIZES MEDIA QUERY
+// ==========================================================================
+
+@include mq-max(sm) {
+   $scale: 1.333333;
+   @each $name, $size in $sizes {
+    @if $name == medium {
+      .text-#{$name} {
+        font-size: $size / $scale;
+      }
+    }
+    @if $name == large {
+      .text-#{$name} {
+        font-size: $size / $scale;
+      }
+    }
+    @if $name == xlarge {
+      .text-#{$name} {
+        font-size: $size / $scale;
+      }
+    }
+    @if $name == huge {
+      .text-#{$name} {
+        font-size: $size / $scale;
+      }
+    }
+  }
+}
+
+// ==========================================================================
+// TEXT ALIGNMENT : Eje.: text-center
+// ==========================================================================
+
+@each $name in $alignment {
+  .text-#{$name} {
+    text-align: $name;
+  }
+}

@@ -1,0 +1,79 @@
+.container {
+   width: 100%;
+   padding: {
+      left: 1rem;
+      right: 1rem;
+   };
+   margin: {
+      left: auto;
+      right: auto;
+   };
+   @include mq-min(md) {
+      max-width: map-get($breakpoints, "md") - 30px ;
+   }
+   @include mq-min(lg) {
+      max-width: 1140px;
+   }
+}
+
+.grid {
+   display: grid;
+   grid-template-columns: repeat(12, 1fr);
+   grid-gap: 1rem;
+}
+
+@for $i from 1 through 12 {
+   .grid-#{$i} {
+      grid-column: span ($i);
+   }
+}
+
+@include mq-min(sm) {
+   @for $i from 1 through 12 {
+      .grid-sm-#{$i} {
+         grid-column: span ($i);
+      }
+   }
+}
+
+@include mq-min(md) {
+   @for $i from 1 through 12 {
+      .grid-md-#{$i} {
+         grid-column: span ($i);
+      }
+   }
+}
+
+@include mq-min(lg) {
+   @for $i from 1 through 12 {
+      .grid-lg-#{$i} {
+         grid-column: span ($i);
+      }
+   }
+}
+
+@include mq-min(lg) {
+   @for $i from 1 through 12 {
+      .grid-xl-#{$i} {
+         grid-column: span ($i);
+      }
+   }
+}
+
+@each $label, $breakpoint, $width in $breakpoints {
+   @media (min-width: #{$breakpoint}) {
+      @for $i from 1 through 12 {
+         
+         @for $y from 1 through 12 {
+            .grid-start-#{$label}-#{$y}.grid-#{$label}-#{$i} {
+            grid-column: #{$y} / span #{$i};
+            }
+         }
+
+         .grid-#{$label}-#{$i} {
+            grid-column-start: span #{$i};
+         }
+      }
+
+   }
+}

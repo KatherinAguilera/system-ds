@@ -1,0 +1,103 @@
+.button-group {
+   display: flex;
+   border: 1px solid color( grayscale, gray-4 );
+   border-radius: 0.25rem;
+   overflow: hidden;
+
+   @include e(input){
+      display: none;
+      &:checked + label{
+         background-color: color( grayscale, gray-4 );
+         color: color(grayscale, white);
+         font-weight: bold;
+         border: 1px solid color( grayscale, gray-4 ) left right;
+         &:last-child{
+            border-right: 0;
+            border-left: 0;
+            color: color(grayscale, white);
+         }
+      }
+   }
+
+   @include e(label) {
+      padding: .875rem .75rem;
+      background-color: color(grayscale, white);
+      font-weight: bold;
+      color: color( grayscale, gray-5 );
+      cursor: pointer;
+      text-align: center;
+      border-right: 1px solid color( grayscale, gray-4 );
+      &:last-child {
+         border-right: none;
+      }
+   }
+
+   // MODIFICADORES DE COLORES
+   $variablesColors : base, light, dark ;
+
+   @each $color in $variablesColors {
+      &.primary-#{$color} {
+         border: 1px solid color( primary, $color );
+         [class*="input"] {
+            &:checked + label{
+               background-color: color( primary, $color );
+            }
+         }
+         [class*="label"] {
+            border-right: 1px solid color( primary, $color );
+            &:last-child {
+               border-right: none;
+            }
+         }
+      }
+      &.secondary-#{$color} {
+         border: 1px solid color( secondary, $color );
+         [class*="input"] {
+            &:checked + label{
+               background-color: color( secondary, $color );
+            }
+         }
+         [class*="label"] {
+            border-right: 1px solid color( secondary, $color );
+            &:last-child {
+               border-right: none;
+            }
+         }
+      }
+   }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// .button-group .button-group__input:checked + label {
+//   background-color: #016D38;
+//   color: white;
+//   font-weight: 500;
+//   border-right: 1px solid #016D38;
+//   border-left: 1px solid #016D38;
+// }
+// .button-group .button-group__input:checked + label:nth-child(2) {
+//   border-left: 0;
+// }
+// .button-group .button-group__input:checked + label:last-child {
+//   border-right: 0;
+//   color: white;
+// }

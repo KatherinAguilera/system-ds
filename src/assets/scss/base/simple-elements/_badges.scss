@@ -1,0 +1,41 @@
+.badge-box {
+    position: relative;
+    width: 2rem;
+    height: 2rem;
+    background: color( grayscale, gray-2 );
+    margin: 0 auto;
+}
+
+.badge{
+    position: absolute;
+    display: inline-flex;
+    align-items: center;
+    background: color( alerts, info );
+    color: color(grayscale, white );
+    font-size: 0.674rem;
+    font-weight: 600;
+    line-height: 1;
+    border-radius: 8px;
+    padding: 3px 5px;
+    min-height: 10px;
+    min-width: 10px;
+    max-height: 16px;
+    
+    &.primary-base {
+        background: color( primary, base );
+    }
+    
+    //POSICIONES
+    $horizontalPositions : top ,bottom;
+    $verticalPositions: left,right;
+
+    @each $vertical in $verticalPositions{
+        @each $horizontal in $horizontalPositions{
+            &-#{$horizontal}-#{$vertical} {
+                #{$horizontal}:-8px;
+                #{$vertical}:-8px;
+            }
+        }
+    }
+    
+}

@@ -1,0 +1,88 @@
+.checkbox{
+
+   @include e(label){
+      display: block;
+      position: relative;
+      padding-left: 1.8rem;
+      line-height: 1.2;
+      cursor: pointer;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      user-select: none;
+
+      [class*="span"]:after{
+         left: 8px;
+         top: 5px;
+         width: 5px;
+         height: 10px;
+         border: solid color( grayscale, white );
+         border-width: 0 3px 3px 0;
+         transform: rotate(45deg);
+      }
+   }
+
+   @include e(input){
+      position: absolute;
+      opacity: 0;
+      left: 0;
+      top: 0;
+      cursor: pointer;
+      &:checked ~  [class*="span"]{
+         background-color: color( grayscale, gray-4 );
+         border:none;
+         &:after{
+            display: block;
+         }
+      }
+      &:disabled{
+         background-color: color( grayscale, gray-4 );
+         border-color: color( grayscale, gray-4 );
+      }
+
+
+   }
+
+   @include e(span){
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: map-get($sizes, 'thumb');
+      width: map-get($sizes, 'thumb');
+      border: 2px solid color( grayscale, gray-3 );
+      border-radius: 3px;
+      &:after{
+         content: "";
+         position: absolute;
+         display: none;
+      }
+      & .disabled{
+         background-color: color( grayscale, gray-6 );
+         border-color: color( grayscale, gray-4 );
+      }
+   }
+
+   @include e(disabled){
+      background-color: color(grayscale, gray-3 );
+      border-color: color(grayscale, gray-3);
+   }
+
+   // MODIFICADORES DE COLORES
+   $variablesColors : base, light, dark ;
+
+   @each $color in $variablesColors {
+      &.primary-#{$color} {
+         [class*="input"] {
+            &:checked ~  [class*="span"]{
+               background-color: color( primary, $color );
+            }
+         }
+      }
+      &.secondary-#{$color} {
+         [class*="input"] {
+            &:checked ~  [class*="span"]{
+               background-color: color( secondary, $color );
+            }
+         }
+      }
+   }
+}

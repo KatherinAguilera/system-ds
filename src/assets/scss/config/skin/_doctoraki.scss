@@ -1,0 +1,56 @@
+// ==========================================================================
+// External Source Definitions 
+// ==========================================================================
+
+$fontFamilyBrand    : 'Dosis', sans-serif;
+$fontPrimary        : 'Roboto', sans-serif;
+$fontSecondary      : 'Open Sans', sans-serif;
+$fontFamilyIcons    : 'chapati';
+
+// ==========================================================================
+// Definitions color
+// ==========================================================================
+
+// Primary Colors
+$primaryBase        : #61B064 !default;
+$primaryLight       : #9FCD00 !default;
+$primaryDark        : #42671a !default;
+
+// Secondary colors
+$secondaryBase      : #FFB800 !default;
+$secondaryLight     : #ffea4d !default;
+$secondaryDark      : #c78800 !default;
+
+// Complementary Colors
+$complementaryOne   : #EBE1CD !default;
+$complementaryTwo   : #21292B !default;
+$complementaryThree : #354043 !default;
+$complementaryFour  : #3BB35A !default;
+$complementaryFive  : #6F983D !default;
+$complementarySix   : #FBF9F5 !default;
+
+// Alerts Colors
+$alertsSuccess      : #50a352 !default;
+$alertsError        : #DC3545 !default;
+$alertsWarning      : #FFC100 !default;
+$alertsInfo         : #0074FC !default;
+
+// Controls Colors
+$control01          : #0074FC !default;
+$control01-dark     : #0056B3 !default;
+
+// GrayScale Colors
+$grayscaleWhite    : #ffffff !default;
+$grayscaleLevel-1  : #fbfbfb !default; 
+$grayscaleLevel-2  : #eeeeee !default;
+$grayscaleLevel-3  : #cccccc !default;
+$grayscaleLevel-4  : #999999 !default;
+$grayscaleLevel-5  : #666666 !default;
+$grayscaleLevel-6  : #333333 !default;
+$grayscaleLevel-7  : #4A4A4A !default; 
+$grayscaleBase     : #1b1b1b !default;
+$grayscaleBlack    : #000000 !default;
+
+// Border Colors
+$borderColor-1     : #ced4da !default;
+$borderColor-2     : #999999 !default;

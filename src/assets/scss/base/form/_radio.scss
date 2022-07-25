@@ -1,0 +1,115 @@
+
+.radio{
+   display: flex;
+   flex-direction: column;
+
+   @include e(label) {
+      display: flex;
+   }
+   
+   @include e(input){
+      border: 0;
+      vertical-align: middle;
+      width: map-get($sizes, thumb);
+      height: map-get($sizes, thumb);
+      line-height: inherit;
+      border: 1px solid color( grayscale, gray-4 );
+      border-radius: map-get($sizes , 'base');
+      -webkit-appearance: initial;
+      position: relative;
+      transition: background 0.28s ease-in-out 0.07s;
+      margin-right: .5rem;
+      margin-left: 0;
+      outline: none;
+      cursor: pointer;
+
+      &:checked:before{
+         content: "";
+         background: color( grayscale, gray-4 );
+         width: 0.5rem;
+         height: 0.5rem;
+         border-radius: map-get($sizes , 'base');
+         top: 50%;
+         left: 50%;
+         transform: translate(-50%, -50%);
+         position: absolute;
+         outline: 0;
+      }
+
+      &:checked:after{
+         animation: box-animate .26s ease-in-out;
+      }
+
+      &:after{
+         content: "";
+         display: block;
+         top: 50%;
+         left: 50%;
+         transform: translate(-50%, -50%);
+         position: absolute;
+         background: color( grayscale, gray-4 );
+         transition: background .28s ease-in-out 0.28s;
+      }
+
+      &:disabled{
+         background-color: color( grayscale, gray-3 );
+         border-color: color( grayscale, gray-3 );
+         cursor: default;
+      }
+   }
+
+   // MODIFICADORES DE COLORES
+   $variablesColors : base, light, dark ;
+
+   @each $color in $variablesColors {
+      &.primary-#{$color} {
+         [class*="input"] {
+            border: 1px solid color( primary, $color );
+            &:checked:before{
+               background: color( primary, $color );
+            }
+            &:after{
+               background: color( primary, $color );
+            }
+            &:disabled{
+               border-color: color( grayscale, gray-3 );
+            }
+         }
+      }
+      &.secondary-#{$color} {
+         [class*="input"] {
+            border: 1px solid color( secondary, $color );
+            &:checked:before{
+               background: color( secondary, $color );
+            }
+            &:after{
+               background: color( secondary, $color );
+            }
+            &:disabled{
+               border-color: color( grayscale, gray-3 );
+            }
+         }
+      }
+   }
+}
+
+
+@keyframes box-animate {
+   0% {
+      width: 1px;
+      height: 1px;
+      border-radius: 240px;
+      opacity: 1;
+   }
+   50% {
+      opacity: 0.8;
+   }
+   90% {
+      width: map-get($sizes , medium );
+      height: map-get($sizes , medium );
+      opacity: 0;
+   }
+   100% {
+      opacity: 0;
+   }
+}

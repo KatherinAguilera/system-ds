@@ -1,0 +1,20 @@
+
+.bg {
+   @include color-modifiers('background', 'background');
+}
+
+.color {
+   border-radius: 100%;
+   width: 6rem;
+   height: 6rem;
+   display: inline-flex;
+   justify-content: center;
+   align-items: center;
+   margin-right: .4rem;
+   @include mq-max(sm) {
+      width: 4.5rem;
+      height: 4.5rem;
+      font-size: .9rem;
+      margin-bottom: .5rem;
+   }
+}

@@ -1,0 +1,92 @@
+
+// Displays
+$dflexs: flex, inline-flex, block, inline-block, grid, none,;
+   @each $dflex in $dflexs {
+   .d-#{$dflex}{
+      display: $dflex;
+   }
+}
+
+@include mq-min(sm) {
+  $d-sm: flex, block, grid, none;
+       @each $d-sm in $d-sm {
+       .d-sm-#{$d-sm}{
+          display: $d-sm;
+       }
+  }
+}
+
+@include mq-min(md) {
+  $d-ms: flex, block, grid, none;
+       @each $d-ms in $d-ms {
+       .d-md-#{$d-ms}{
+          display: $d-ms;
+       }
+  }
+}
+
+@include mq-min(lg) {
+  $d-ls: flex, block, grid, none;
+       @each $d-ls in $d-ls {
+       .d-lg-#{$d-ls}{
+          display: $d-ls;
+       }
+  }
+}
+
+@include mq-min(xl) {
+  $d-xl: flex, block, grid, none;
+       @each $d-xl in $d-xl {
+       .d-xl-#{$d-xl}{
+          display: $d-xl;
+       }
+  }
+}
+
+// Flex Flow Direction : applies to flex containers
+$directions: row, row-reverse, column, column-reverse;
+@each $dflex in $directions {
+   .d-#{$dflex}{
+      display: $dflex;
+   }
+}
+
+// Axis Alignment : applies to flex containers
+$justifys: flex-start, flex-end, center, space-between, space-around, space-evenly;
+@each $justify in $justifys {
+   .jc-#{$justify}{
+      justify-content: $justify;
+   }
+}
+
+// Cross-axis Alignment : applies to flex containers
+$aligns: flex-start, flex-end, center, baseline, stretch;
+@each $align in $aligns {
+   .ai-#{$align}{
+      align-items: $align;
+   }
+}
+
+// Packing Flex Lines : applies to multi-line flex containers
+$aligns: flex-start, flex-end, center, space-between, space-around, stretch;
+@each $align in $aligns {
+   .ac-#{$align}{
+      align-content: $align;
+   }
+}
+
+// Cross-axis Alignment : applies to flex containers
+$aligns: flex-start, flex-end, center, baseline, stretch;
+@each $align in $aligns {
+   .ai-#{$align}{
+      align-items: $align;
+   }
+}
+
+// Cross-axis Alignment : applies to flex items
+$aligns: flex-start, flex-end, center, baseline, stretch;
+@each $align in $aligns {
+   .as-#{$align}{
+      align-self: $align;
+   }
+}

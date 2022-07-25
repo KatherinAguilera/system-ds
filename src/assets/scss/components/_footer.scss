@@ -1,0 +1,11 @@
+.app-footer {
+    display: grid;
+    min-height: 60px;
+    background-color: color(secondary, 'dark');
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    .text-footer {
+        color: white;
+    }
+}

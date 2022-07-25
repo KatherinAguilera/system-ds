@@ -1,0 +1,11 @@
+.app-header {
+    display: grid;
+    height: 80px;
+    background-color: color(grayscale, white);
+    box-shadow: 1px 1px 3px rgba(0,0,0,0.15);
+    grid-template-columns: repeat(1, 1fr);
+    align-items: center;
+    .brand {
+        max-width: 8rem;
+    }
+}

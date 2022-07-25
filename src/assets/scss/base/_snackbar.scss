@@ -1,0 +1,23 @@
+
+.snackbar {
+   font-family: $font-family-brand;
+   font-size: .85rem;
+   color: color( grayscale, white );
+   background: color( grayscale, gray-6 );
+   padding: .9rem 1rem;
+   margin-bottom: 1rem;
+   border-radius: .25rem;
+   letter-spacing: -.01rem;
+   position: relative;
+   display: flex;
+   justify-content: space-between;
+   a {
+      &.snackbar__link {
+         width: auto;
+         margin-left: 1rem;
+         overflow: initial;
+      }
+   }
+}
+
+@include alert-modifiers();

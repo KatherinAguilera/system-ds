@@ -1,0 +1,9 @@
+
+// Define anchos en bloques (10% to 100%)
+// Eje.: .width-50 // define 50%
+
+@for $i from 1 through 10 {
+   .width-#{$i * 10} {
+      width: (100 / (10 / $i) ) * 1%;
+   }
+}

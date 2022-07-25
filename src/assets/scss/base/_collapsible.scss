@@ -1,0 +1,41 @@
+.collapsible {
+    @include e(header) {
+        padding: $font-size 0;
+        @include m(button) {
+            &.arrow {
+                cursor: pointer;
+                border: 0;
+                width: 100%;
+                .ico-arrow_up {
+                    transform: rotate(180deg);
+                    transition: .3s ease;
+                }
+                &.rotate {
+                    .ico-arrow_up {
+                        transform: rotate(0deg);
+                    }
+                }
+            }
+            &:hover, &:focus {
+                text-decoration: none;
+            }
+            .text-button {
+                margin-bottom: 0;
+                width: 100%;
+                text-align: left;
+            }
+        }
+    }
+    @include e(content) {
+        overflow: hidden;
+        transition: .3s ease;
+        height: auto;
+        &.closed {
+            height: 0;
+            transition: .3s ease;
+        } 
+    }
+}
+
+
+

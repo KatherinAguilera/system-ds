@@ -1,0 +1,108 @@
+
+// ==========================================================================
+// Importación de la typografia desde URL externa
+// ==========================================================================
+
+$font-url--google   : url('https://fonts.googleapis.com/css?family=Roboto+Condensed:300,400,700&display=swap" rel="stylesheet');
+@if variable-exists( $font-url--google) {
+   @import url($font-url--google);
+}
+
+// ==========================================================================
+// Importación de fuente de iconos
+// ==========================================================================
+
+@font-face {
+   font-family: 'ds';
+   src:  url('../fonts/ds.eot?uk8w17');
+   src:  url('../fonts/ds.eot?uk8w17#iefix') format('embedded-opentype'),
+     url('../fonts/ds.ttf?uk8w17') format('truetype'),
+     url('../fonts/ds.woff?uk8w17') format('woff'),
+     url('../fonts/ds.svg?uk8w17#ds') format('svg');
+   font-weight: normal;
+   font-style: normal;
+   font-display: block;
+ }
+ 
+ [class^="ico-"], [class*=" ico-"] {
+   /* use !important to prevent issues with browser extensions that change fonts */
+   font-family: 'ds' !important;
+   speak: none;
+   font-style: normal;
+   font-weight: normal;
+   font-variant: normal;
+   text-transform: none;
+   line-height: 1;
+ 
+   /* Better Font Rendering =========== */
+   -webkit-font-smoothing: antialiased;
+   -moz-osx-font-smoothing: grayscale;
+ }
+ 
+ .ico-share:before {
+   content: "\e905";
+ }
+ .ico-favorite-black:before {
+   content: "\e915";
+ }
+ .ico-error_outline:before {
+   content: "\e912";
+ }
+ .ico-report_problem:before {
+   content: "\e913";
+ }
+ .ico-check_circle_outline:before {
+   content: "\e914";
+ }
+ .ico-build:before {
+   content: "\e910";
+ }
+ .ico-check_box:before {
+   content: "\e911";
+ }
+ .ico-schedule:before {
+   content: "\e90f";
+ }
+ .ico-today:before {
+   content: "\e90e";
+ }
+ .ico-grid:before {
+   content: "\e909";
+ }
+ .ico-invert_colors:before {
+   content: "\e90a";
+ }
+ .ico-layout:before {
+   content: "\e90b";
+ }
+ .ico-text_format:before {
+   content: "\e90c";
+ }
+ .ico-touch:before {
+   content: "\e90d";
+ }
+ .ico-account_circle:before {
+   content: "\e908";
+ }
+ .ico-arrow_down:before {
+   content: "\e900";
+ }
+ .ico-arrow_up:before {
+   content: "\e901";
+ }
+ .ico-btn-close:before {
+   content: "\e902";
+ }
+ .ico-close:before {
+   content: "\e903";
+ }
+ .ico-menu:before {
+   content: "\e904";
+ }
+ .ico-opacity:before {
+   content: "\e906";
+ }
+ .ico-search:before {
+   content: "\e907";
+ }
+ 

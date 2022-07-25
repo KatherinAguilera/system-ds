@@ -1,0 +1,132 @@
+
+.tabs {
+   display: flex;
+   flex-direction: column;
+   background: color(grayscale, white);
+   margin-bottom: 1rem;
+   position: relative;
+
+   @include e(header) {
+      display: flex;
+      justify-content: center;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.09), 0 2px 3px rgba(0, 0, 0, 0.04);
+      background: color(grayscale, white);
+      position: relative;
+      height: 50px;
+      overflow: hidden;
+   }
+
+   @include e(label) {
+      font-family: $font-family-brand;
+      font-weight: 700;
+      font-size: .9rem;
+      letter-spacing: .5px;
+      color: color(grayscale, gray-4);
+      width: 130px;
+      text-align: center;
+      cursor: pointer;
+      flex-shrink: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      &.active {
+         color: color(primary, base);
+         &:after {
+            content: '';
+            height: 2px;
+            background: color(primary, base);
+            width: 100%;
+            position: absolute;
+            bottom: 0;
+         }
+      }
+      .cercle {
+         width: 0px;
+         height: 0px;
+         position: absolute;
+         background-color: color(primary, base);
+      }
+   }
+
+   @include e(container) {
+      background: color(grayscale, white);
+      top: 5px;
+      position: relative;
+      padding: 1rem;
+   }
+    
+   @include e(panel) {
+      display: none;
+      opacity: 0;
+      &.active {
+         display: block;
+         opacity: 1;
+      }
+   }    
+
+   [class*="arrow"] {
+      display: none;
+   }
+
+   &.with-arrows [class*="arrow"] {
+      display: block;
+      position: absolute;
+      height: 50px;
+      background: color(grayscale, white);
+      width: 25px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+   }
+
+   &.with-arrows .tabs__header {
+      padding: 0 1.5rem;
+      justify-content: flex-start;
+   }
+
+   @include e(arrow) {
+      &--left,
+      &--right {
+         &::after,
+         &::after {
+            font-family: 'ds';
+            content: "\e900";
+            color: color( grayscale, gray-4 );
+            font-size: 1.4rem;
+         }
+      }
+      &--left {
+         left: 0;
+         box-shadow: 3px 0px 5px 0px rgba(0, 0, 0, 0.05);
+         &::after {
+            transform: rotate(90deg);
+         }
+      }
+      &--right {
+         right: 0;
+         box-shadow: -3px 0px 5px 0px rgba(0, 0, 0, 0.05);
+         &::after {
+            transform: rotate(-90deg);
+         }
+      }
+   }
+}
+
+// Animación que se aplica al dar click al tab
+.animation-wave {
+   opacity: 0.15;
+   animation: touch 1.3s ease-out;
+}
+ 
+@keyframes touch {
+   100% { 
+      width: 600px;
+      height: 600px;
+      border-radius: 600px;
+      opacity: 0;
+      margin: -300px;
+   }
+}

@@ -1,0 +1,195 @@
+
+.select {
+   position: relative;
+   padding-top: 2rem;
+   margin-bottom: .8rem;
+
+   @include e(select) {
+      width: 100%;
+      @extend .input__input
+   }
+
+   @include e(label) {
+      @extend .input__label;
+   }
+
+   // MODIFICADORES DE select
+
+   @include m(outline) {
+      select {
+         display: none;
+      }
+      [class*="__selected"] {
+         position: relative;
+         padding: .5rem;
+         color: color( grayscale, gray-7 );
+         border: 1px solid color( grayscale, gray-4 );
+         border-radius: 5px;
+         cursor: pointer;
+         &::after {
+            position: absolute;
+            font-family: 'ds';
+            content: '\e900';
+            right: 0;
+            font-size: 1.5rem;
+            line-height: 1.7;
+            top: 0;
+            padding: 0 .3rem;
+            transition: all ease .2s;
+         }
+         &::before {
+            content: '';
+            height: 100%;
+            position: absolute;
+            right: 2.1rem;
+            top: 0;
+            border-left: 1px solid color( grayscale, gray-4 );
+         }
+         &.active {
+            &::after {
+               transform: rotate(-180deg);
+            }
+            & ~ [class*="options"] {
+               display: block;
+            }
+         }
+
+         &.active, &:focus, &:hover {
+            border-color: color( grayscale, gray-4 );
+            box-shadow: inset 0px 0px 0 1px color( grayscale, gray-4 );
+            &::before {
+               border-left: 2px solid color( grayscale, gray-4 );
+            }
+         }
+        
+
+      }
+      [class*="options"] {
+         position: absolute;
+         top: 100%;
+         right: 0;
+         left: 0;
+         z-index: 999;
+         margin: 0;
+         padding: 0;
+         border-radius: 3px;
+         border: 1px solid color( grayscale, gray-3 );
+         background: #fff;
+         &[class*="hide"] {
+            display: none;
+         }
+         div {
+            color: color( grayscale, gray-7 );
+            border-bottom: 1px solid color( grayscale, gray-3 );
+            padding: .4rem 1rem;
+            cursor: pointer;
+            &:last-child {
+               border-bottom: none;
+            }
+            &:hover {
+               color: color( grayscale, gray-5 );
+               background: color( grayscale, gray-2 );
+            }
+         }
+      }
+   }
+
+   @include m(underline) {
+      @extend .select--outline;
+      [class*="__selected"] {
+         border: none;
+         border-radius: 0;
+         border-bottom: 1px solid color( grayscale, gray-4 );
+         &.active, &:focus, &:hover {
+            border-color: none;
+            box-shadow: none;
+         }
+         &::before {
+            content: "";
+            position: absolute;
+            background-color: color( grayscale, gray-4 );
+            left: 0;
+            top: 100%;
+            display: block;
+            width: 100%;
+            height: 2px;
+            transform: scaleX(0);
+            transition: transform 0.3s;
+         }
+         &.active::before {
+            transform: scaleX(1);
+         }
+      }
+
+      [class*="options"] {
+         top: calc(100% + 1px);
+      }
+   }
+
+   // MODIFICADORES DE COLORES
+   $variablesColors : base, light, dark ;
+
+   @include m(outline) {
+      @each $color in $variablesColors {
+         &.primary-#{$color} {
+            [class*="__selected"] {
+               &.active, &:focus, &:hover {
+                  border-color: color( primary, $color );
+                  box-shadow: inset 0px 0px 0 1px color( primary, $color );
+                  &::before {
+                     border-left: 2px solid color( primary, $color );
+                  }
+                  &::after {
+                     color: color( primary, $color );
+                  }
+               }
+            }
+         }
+         &.secondary-#{$color} {
+            [class*="__selected"] {
+               &.active, &:focus, &:hover {
+                  border-color: color( secondary, $color );
+                  box-shadow: inset 0px 0px 0 1px color( secondary, $color );
+                  &::before {
+                     border-left: 2px solid color( secondary, $color );
+                  }
+                  &::after {
+                     color: color( secondary, $color );
+                  }
+               }
+            }
+         }
+      }
+   }
+
+   @include m(underline) {
+      @each $color in $variablesColors {
+         &.primary-#{$color} {
+            [class*="__selected"] {
+               &.active, &:focus, &:hover {
+                  box-shadow: none;
+                  &::after {
+                     color: color( primary, $color );
+                  }
+               }
+               &::before {
+                  background-color: color( primary, $color );
+               }
+            }
+         }
+         &.secondary-#{$color} {
+            [class*="__selected"] {
+               &.active, &:focus, &:hover {
+                  box-shadow: none;
+                  &::after {
+                     color: color( secondary, $color );
+                  }
+               }
+               &::before {
+                  background-color: color( secondary, $color );
+               }
+            }
+         }
+      }
+   }
+}
